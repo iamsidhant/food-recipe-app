@@ -17,8 +17,16 @@ export default function GlobalState({ children }) {
         event.preventDefault();
         try {
             const res = await fetch(
-                `https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=${searchParam}`)
-            console.log(text);
+                `https://forkify-api.herokuapp.com/api/v2/recipes?search={searchParam}`
+                );
+
+                const data = await res.json();
+                if(data?.data?.recipes){
+                    setRecipeList(data?.data?.recipes);
+                    setLoading(false);
+                    setSearchParam("");
+                    navigate("/")
+                }
         } catch (e) {
             console.log(e);
             setLoading(false);
@@ -26,22 +34,22 @@ export default function GlobalState({ children }) {
         }
     }
 
-    function handleAddToFavourite(getCurrentItem){
-        console.log(getCurrentItem);
-    }
+    // function handleAddToFavourite(getCurrentItem){
+    //     console.log(getCurrentItem);
+    // }
 
-    console.log(favouritesList, 'favouritesList');
+    // console.log(favouritesList, 'favouritesList');
 
   return (
     <GlobalContext.Provider
     value = {{
         searchParam,
-        // loading,
-        // recipeList,
+        loading,
+        recipeList,
         setSearchParam,
-        // handleSubmit,
-        // recipeDetailsData,
-        // setRecipeDetailsData,
+        handleSubmit,
+        recipeDetailsData,
+        setRecipeDetailsData,
         // handleAddToFavourite,
         // favouritesList
         }}

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 // import GlobalContext from '../../context/GlobalContext';
 
 export default function Navbar() {
-  // const {searchParam, setSearchParam, handleSubmit} = useContext(GlobalContext);
+  // const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext);
 
   // console.log(searchParam);
 
