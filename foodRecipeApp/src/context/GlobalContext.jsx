@@ -38,7 +38,7 @@ export default function GlobalState({ children }) {
     //     console.log(getCurrentItem);
     // }
 
-    // console.log(favouritesList, 'favouritesList');
+    console.log(favouritesList, 'favouritesList');
 
   return (
     <GlobalContext.Provider
@@ -51,7 +51,7 @@ export default function GlobalState({ children }) {
         recipeDetailsData,
         setRecipeDetailsData,
         // handleAddToFavourite,
-        // favouritesList
+        favouritesList
         }}
     >
         { children }
