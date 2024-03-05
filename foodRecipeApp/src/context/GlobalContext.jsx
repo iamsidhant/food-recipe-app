@@ -34,9 +34,19 @@ export default function GlobalState({ children }) {
         }
     }
 
-    // function handleAddToFavourite(getCurrentItem){
-    //     console.log(getCurrentItem);
-    // }
+    function handleAddToFavourite(getCurrentItem){
+        console.log(getCurrentItem);
+        let copyFavouritesList = [...favouritesList];
+        const index = copyFavouritesList.findIndex((item) => item.id === getCurrentItem.id)
+
+        if (index == -1) {
+            copyFavouritesList.push(getCurrentItem)
+        } else {
+            copyFavouritesList.splice(index)
+        }
+
+        setFavouritesList(copyFavouritesList);
+    }
 
     console.log(favouritesList, 'favouritesList');
 
@@ -50,7 +60,7 @@ export default function GlobalState({ children }) {
         handleSubmit,
         recipeDetailsData,
         setRecipeDetailsData,
-        // handleAddToFavourite,
+        handleAddToFavourite,
         favouritesList
         }}
     >
